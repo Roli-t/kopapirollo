@@ -1,6 +1,7 @@
 package view;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
@@ -316,17 +317,11 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_chbMentActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        if(chbMent.isSelected()){
-           ablakFelugro();
-       }else{
-           kilepes();}
+       felugro(chbMent);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-         if(chbMent.isSelected()){
-           ablakFelugro();
-       }else{
-           kilepes();}
+         felugro(chbMent);
     }//GEN-LAST:event_formWindowClosing
 
     public void Spinner(){
@@ -347,14 +342,18 @@ public class MainForm extends javax.swing.JFrame {
         }
     }
     
-    public void kilepes(){
-        System.exit(0);
-
-    }
     
     public void ablakFelugro(){
         JFileChooser chooser = new JFileChooser();
          int returnVal = chooser.showOpenDialog(chooser);
+    }
+    
+    public static void felugro(JCheckBox j){
+        if(j.isSelected()){
+          JFileChooser chooser = new JFileChooser();
+         int returnVal = chooser.showOpenDialog(chooser);
+       }else{
+          System.exit(0);}
     }
     
     public static void main(String args[]) {
